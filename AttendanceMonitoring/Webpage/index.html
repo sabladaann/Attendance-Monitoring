@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attendance Monitoring</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="backgroundContainer">
+      <img src="../images/Background.png" alt="" />
+    </div>
+
+    <!-- Add this modal structure near your other elements -->
+    <div id="camera-modal" class="camera-modal">
+      <div class="camera-modal-content">
+        <div class="camera-header">
+          <h3>Attendance Verification</h3>
+          <div class="camera-timer" id="camera-timer">5</div>
+        </div>
+        <div class="camera-preview-container">
+          <video id="camera-video" autoplay playsinline></video>
+          <div class="camera-overlay">
+            <div class="face-outline"></div>
+            <div class="instruction-text">
+              Please position your face within the frame
+            </div>
+          </div>
+        </div>
+        <div class="camera-footer">
+          <button id="cancel-camera" class="camera-btn">Cancel</button>
+          <button id="capture-now" class="camera-btn primary">
+            Capture Now
+          </button>
+        </div>
+
+
+      </div>
+    </div>
+    <div class="container">
+      <input
+        type="text"
+        id="passkey"
+        placeholder="Enter Passkey"
+        maxlength="10"
+      />
+      <div id="student-info"></div>
+      
+      <div id="camera-timer"></div>
+      <button id="show-attendance">Show Attendance</button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

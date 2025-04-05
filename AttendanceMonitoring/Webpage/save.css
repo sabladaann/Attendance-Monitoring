@@ -1,0 +1,150 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url(../images/attendanceSaved.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.check-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed; /* Fix it in the viewport */
+  right: 250px; /* Position it towards the right */
+  top: 40%; /* Position it vertically in the center */
+  transform: translateY(-50%); /* Adjust the exact center vertically */
+  opacity: 0; /* Initially hidden */
+  animation: fadeInContainer 1s forwards, loopCheckAnimation 3s infinite; /* Apply loop animation */
+  z-index: 9999; /* Ensure it's on top of other content */
+}
+
+.check-icon {
+  width: 250px; /* Increased size */
+  height: 250px; /* Increased size */
+  stroke-dasharray: 100; /* Path length for the animation */
+  stroke-dashoffset: 100; /* Initially hidden */
+  animation: drawCheck 2s forwards, loopCheckPath 3s infinite; /* Loop the checkmark drawing */
+}
+
+#check-message {
+  font-size: 2rem; /* Increased font size */
+  margin-top: 20px;
+  opacity: 0;
+  animation: fadeInMessage 2s infinite 2s; /* Fade in and out the message */
+}
+
+/* Fade in the entire container */
+@keyframes fadeInContainer {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Animation for drawing the checkmark */
+@keyframes drawCheck {
+  from {
+    stroke-dashoffset: 100;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Looping animation for the checkmark path */
+@keyframes loopCheckPath {
+  0% {
+    stroke-dashoffset: 100;
+  }
+  50% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 100;
+  }
+}
+
+/* Fade in animation for the message */
+@keyframes fadeInMessage {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f8f9fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.check-container {
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+
+
+#check-mark {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: drawCheck 0.8s ease-out forwards 0.3s;
+}
+
+#check-message {
+  font-size: 24px;
+  font-weight: 600;
+  color: #2e7d32;
+  margin-bottom: 10px;
+}
+
+#time-in {
+  font-size: 30px;
+  font-weight: 500;
+  color: #555;
+  background: #f1f8e9;
+  padding: 8px 16px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-top: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes drawCheck {
+  to {
+    stroke-dashoffset: 0;
+  }
+}

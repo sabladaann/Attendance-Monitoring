@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attendance Report</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="attendance.css" />
+  </head>
+  <body>
+    <div class="attendance-container">
+      <h1>Attendance Report</h1>
+      <div class="controls">
+        <input
+          type="text"
+          id="search"
+          placeholder="Search by name, student number, or date"
+        />
+        <button id="export-csv">Export to CSV</button>
+        <button id="reset-data">Reset Data</button>
+      </div>
+
+      <div class="filter-controls">
+        <div class="year-filters">
+          <button class="filter-btn" data-year="1">1st Year</button>
+          <button class="filter-btn" data-year="2">2nd Year</button>
+          <button class="filter-btn" data-year="3">3rd Year</button>
+          <button class="filter-btn" data-year="4">4th Year</button>
+          <button class="filter-btn" data-year="all">All Years</button>
+        </div>
+        <div class="section-filters" id="section-filters">
+          <!-- Sections will be populated dynamically based on year selection -->
+          <button class="section-btn" data-section="all">All Sections</button>
+        </div>
+      </div>
+
+      <div class="date-navigation">
+        <button id="prev-date">Previous</button>
+        <span id="current-date"></span>
+        <button id="next-date">Next</button>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Student Number</th>
+            <th>Year & Section</th>
+            <th>Status</th>
+            <th>Image</th>
+            <th>Time In</th>
+            <th>Time Out</th>
+          </tr>
+        </thead>
+        <tbody id="attendance-body"></tbody>
+      </table>
+      <button onclick="window.location.href = 'index.html'">Back</button>
+    </div>
+
+    <!-- Reset Modal -->
+    <div id="reset-modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Reset Attendance Data</h2>
+        <p>Enter admin credentials to reset data:</p>
+        <input type="text" id="username" placeholder="Username" />
+        <input type="password" id="password" placeholder="Password" />
+        <p id="reset-error" style="color: red"></p>
+        <button id="confirm-reset">Reset Data</button>
+      </div>
+    </div>
+
+    <script src="attendance.js"></script>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attendance Confirmation</title>
+    <link rel="stylesheet" href="./save.css">
+  </head>
+  <body>
+    <div class="check-container">
+      <svg
+        class="check-icon"
+        viewBox="0 0 50 50"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          id="check-mark"
+          d="M10 25L20 35L40 15"
+          stroke="#2e7d32"
+          stroke-width="5"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+      <p id="check-message">Attendance Recorded</p>
+      <div id="time-in"></div>
+    </div>
+
+    <script>
+      // Function to display the check and redirect after 3 seconds
+      function showAttendanceChecked() {
+        const checkContainer = document.querySelector(".check-container");
+        const timeInElement = document.getElementById("time-in");
+        
+        // Get current time
+        const now = new Date();
+        const timeString = now.toLocaleTimeString([], { 
+          hour: '2-digit', 
+          minute: '2-digit',
+          hour12: true 
+        });
+        
+        // Set the time-in text
+        timeInElement.textContent = `Time In: ${timeString}`;
+        
+        // Show the check-container (making it visible)
+        checkContainer.style.opacity = 1;
+        
+        // Wait for 3 seconds after showing the checkmark and then redirect
+        setTimeout(() => {
+          // Redirect to another page after 3 seconds
+          window.location.href = "index.html"; // Replace with your next page URL
+        }, 3000); // Redirects after 3000ms (3 seconds)
+      }
+      
+      // Call the function to trigger the animation and redirect
+      showAttendanceChecked();
+    </script>
+  </body>
+</html>
